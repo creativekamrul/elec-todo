@@ -2,6 +2,8 @@
 
 A personal simple todo application with no BS. Built with Next.js, Supabase, and Tailwind CSS.
 
+**Author:** [creativekamrul](https://github.com/creativekamrul)
+
 ## Features
 
 - ✅ Create and manage tasks with due dates
@@ -16,22 +18,9 @@ A personal simple todo application with no BS. Built with Next.js, Supabase, and
 
 ### Option 1: Docker Compose (Recommended)
 
-One-command deployment with Docker Compose:
+One-command deployment with Docker Compose.
 
-1. **Create `.env` file** with your Supabase credentials:
-   ```bash
-   NEXT_PUBLIC_SUPABASE_URL=https://your-supabase-url.supabase.co
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
-   ```
-
-2. **Run:**
-   ```bash
-   docker-compose up -d
-   ```
-
-3. **Access at:** http://localhost:3000
-
-📖 **For detailed Docker instructions, see [QUICK-START.md](./QUICK-START.md)**
+📖 **For complete Docker setup instructions, see [QUICK-START.md](./QUICK-START.md) to get up and running with Docker.**
 
 ### Option 2: Local Development
 
