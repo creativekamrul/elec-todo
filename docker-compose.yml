@@ -4,7 +4,7 @@ services:
   elect-todo:
     image: node:18-alpine
     working_dir: /app
-    command: sh -c "npm ci && npm run build && npm start"
+    command: sh -c "npm install && npm run build && npm start"
     ports:
       - "3000:3000"
     environment:
