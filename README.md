@@ -1,36 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ElecTodo
 
-## Getting Started
+A personal simple todo application with no BS. Built with Next.js, Supabase, and Tailwind CSS.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- ✅ Create and manage tasks with due dates
+- 🏷️ Organize tasks with custom multi-tag support
+- 📋 Kanban board view for better workflow management
+- 🌙 Dark mode interface
+- 🔒 Secure authentication with Supabase
+- 📱 Responsive design
+- 🐳 Docker deployment ready
+
+## Quick Setup
+
+### Option 1: Docker Compose (Recommended)
+
+One-command deployment with Docker Compose:
+
+1. **Create `.env` file** with your Supabase credentials:
+   ```bash
+   NEXT_PUBLIC_SUPABASE_URL=https://your-supabase-url.supabase.co
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+   ```
+
+2. **Run:**
+   ```bash
+   docker-compose up -d
+   ```
+
+3. **Access at:** http://localhost:3000
+
+📖 **For detailed Docker instructions, see [QUICK-START.md](./QUICK-START.md)**
+
+### Option 2: Local Development
+
+1. **Clone and install:**
+   ```bash
+   git clone https://github.com/creativekamrul/elec-todo.git
+   cd elec-todo
+   npm install
+   ```
+
+2. **Set up environment:**
+   - Copy [`.env.example`](./.env.example) to `.env.local`
+   - Add your Supabase credentials
+
+3. **Database Setup:**
+   - Apply the database schema from [`database/schema.sql`](./database/schema.sql) to your Supabase project
+
+4. **Run development server:**
+   ```bash
+   npm run dev
+   ```
+
+📖 **For detailed setup instructions, see [SETUP.md](./SETUP.md)**
+
+## Deployment
+
+### Portainer Deployment
+
+For Portainer users, follow the deployment guide in [DEPLOYMENT.md](./DEPLOYMENT.md).
+
+### Local Docker Compose
+
+For local deployment using Docker Compose, refer to [QUICK-START.md](./QUICK-START.md).
+
+## Project Structure
+
+```
+├── app/                 # Next.js app router pages
+├── components/          # React components
+├── contexts/           # React contexts (Auth)
+├── database/           # Database schema
+├── lib/                # Utility functions (Supabase client)
+├── public/             # Static assets
+├── docker-compose.yml  # Docker Compose configuration
+├── Dockerfile          # Docker configuration
+└── nginx.conf          # Nginx configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technology Stack
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Frontend**: Next.js 16.1.1, React 19.2.3
+- **Styling**: Tailwind CSS 4
+- **Database**: Supabase (PostgreSQL)
+- **Authentication**: Supabase Auth
+- **Deployment**: Docker, Docker Compose, Portainer
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Configuration
 
-## Learn More
+### Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+Required environment variables:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Database Schema
 
-## Deploy on Vercel
+The application uses a multi-tag system with the following tables:
+- `todos` - Task items
+- `tags` - Available tags
+- `todo_tags` - Many-to-many relationship between todos and tags
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+See [`database/schema.sql`](./database/schema.sql) for the complete schema.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Development
+
+### Available Scripts
+
+```bash
+npm run dev        # Start development server
+npm run build      # Build for production
+npm run start      # Start production server
+npm run lint       # Run ESLint
+```
+
+### Color Scheme
+
+The application uses a dark theme with the following colors:
+- Dark/Full Black: `#000814`
+- Blue: `#0077b6`
+- White: `#f6fff8`
+- Red: `#c1121f`
+- Ocean Blue: `#90e0ef`
+- Tag Colors: `#48cae4`, `#8ecae6`, `#ffb703`, `#ffc300`, `#ffc8dd`, `#a8dadc`, `#dee2e6`
+
+## Support
+
+For setup and deployment issues:
+
+- 📖 [SETUP.md](./SETUP.md) - Complete setup guide
+- 📖 [DEPLOYMENT.md](./DEPLOYMENT.md) - Deployment instructions
+- 📖 [QUICK-START.md](./QUICK-START.md) - Docker quick start
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+**ElecTodo** - Personal task management, simplified.
