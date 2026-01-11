@@ -116,7 +116,6 @@ export default function Auth() {
                 style={{ backgroundColor: '#0077b6', color: '#f6fff8', borderColor: '#0077b6' }}
                 onMouseEnter={(e) => { if (!loading && email && password) e.target.style.backgroundColor = '#005f8a'; }}
                 onMouseLeave={(e) => { if (!loading && email && password) e.target.style.backgroundColor = '#0077b6'; }}
-                disabled={loading || !email || password ? { backgroundColor: '#48cae4', cursor: 'not-allowed' } : {}}
               >
                 {loading ? (
                   <span className="flex items-center">
